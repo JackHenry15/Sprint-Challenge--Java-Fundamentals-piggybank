@@ -27,15 +27,17 @@ public class CoinController {
         for (Coin c : coinList) {
             total += c.getQuantity() * c.getValue();
         }
+
+        int i = 0;
+        for (i = 0; i < coinList.size(); i++){
+            if(coinList.get(i).getQuantity() > 1){
+                System.out.println(coinList.get(i).getQuantity() + " " + coinList.get(i).getNameplural());
+            }else{
+                System.out.println(coinList.get(i).getQuantity() + " " + coinList.get(i).getName());
+            }
+        }
         System.out.println(
-                coinList.get(0).getQuantity() + " " + coinList.get(0).getName() + "\n"
-                + coinList.get(1).getQuantity() + " " + coinList.get(1).getName() + "\n"
-                + coinList.get(2).getQuantity() + " " + coinList.get(2).getNameplural() + "\n"
-                + coinList.get(3).getQuantity() + " " + coinList.get(3).getNameplural() + "\n"
-                + coinList.get(4).getQuantity() + " " + coinList.get(4).getNameplural() + "\n"
-                + coinList.get(5).getQuantity() + " " + coinList.get(5).getName() + "\n"
-                + coinList.get(6).getQuantity() + " " + coinList.get(6).getNameplural() + "\n"
-                + "The piggy bank holds " + total
+                "The piggy bank holds " + total
         );
 
         //MVP in console
@@ -47,8 +49,6 @@ public class CoinController {
         //    1 Dollar
         //    10 Pennies
         //    The piggy bank holds 7.3
-
-//        System.out.println(con);
 
         return new ResponseEntity<>(HttpStatus.OK);
     }
